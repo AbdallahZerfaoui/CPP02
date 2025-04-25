@@ -4,6 +4,7 @@
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
+	nbr = 0;
 }
 
 Fixed::Fixed(const int value)
@@ -26,28 +27,17 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number)
 // Copy constructor
 Fixed::Fixed(const Fixed& other)
 {
-	// std::cout << "Fixed copy constructor called" << std::endl;
-	// Copy member variables from 'other'.
-	// Often done by calling the copy assignment operator:
+	std::cout << "Copy constructor called" << std::endl;
     *this = other;
-    // Alternatively, copy them directly here:
-    // 
-	// Copy member variables
-	nbr = other.nbr;
 }
 
 // Copy assignment operator
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	// std::cout << "Fixed copy assignment operator called" << std::endl;
+	std::cout << "Fixed copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		// Clean up existing resources if necessary
-
-        
-	// Copy member variables
 		this->nbr = other.nbr;
-		// Assign member variables from 'other' (assigned above or add more manually)
 	}
 	return *this;
 }
@@ -85,11 +75,3 @@ void Fixed::setRawBits(int const raw)
 {
 	this->nbr = raw;
 }
-// Add other member function definitions here (declared above or add more manually)
-
-// Optional: Overload stream insertion operator definition
-// std::ostream& operator<<(std::ostream& os, const Fixed& obj)
-// {
-//     // Output object state to stream
-//     return os;
-// }
