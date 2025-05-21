@@ -2,8 +2,16 @@
 # define FIXED_HPP
 
 # include <iostream> // Common include, adjust as needed
-# include <string>   // Common include, adjust as needed
 
+/**
+ * @file Fixed.hpp
+ * @brief Header file for the Fixed class.
+ * @details This class represents a fixed-point number with a specific number of fractional bits.
+ * It provides methods to get and set the raw bits of the fixed-point number.
+ * The class follows the canonical form, including a default constructor, copy constructor,
+ * copy assignment operator, and destructor.
+ * The class also includes methods to convert between fixed-point and integer/float representations.
+ */
 class Fixed
 {
 	private:
