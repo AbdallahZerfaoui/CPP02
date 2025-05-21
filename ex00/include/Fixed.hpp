@@ -1,14 +1,19 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-# include <iostream>
-# include <string>
-
+/**
+ * @file Fixed.hpp
+ * @brief Header file for the Fixed class.
+ * @details This class represents a fixed-point number with a specific number of fractional bits.
+ * It provides methods to get and set the raw bits of the fixed-point number.
+ * The class follows the canonical form, including a default constructor, copy constructor,
+ * copy assignment operator, and destructor.
+ */
 class Fixed
 {
 	private:
-		int number_value;
-		static const int bits = 8;
+		int _number_value;
+		static const int _bits = 8;
 
 	public:
 		// Canonical Form
@@ -18,12 +23,6 @@ class Fixed
 		~Fixed();                           // Destructor
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
-
-		// Add other member functions here (declared above or add more manually)
-
 };
-
-// Optional: Overload stream insertion operator (common 42 practice)
-// std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif
