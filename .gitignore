@@ -3,3 +3,4 @@
 */scripts/
 */tasks.json
 test*
+*.o

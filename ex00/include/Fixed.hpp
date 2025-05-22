@@ -17,10 +17,11 @@ class Fixed
 
 	public:
 		// Canonical Form
-		Fixed();                            // Default constructor
+		Fixed();
 		Fixed(const Fixed& other); // Copy constructor
 		Fixed& operator=(const Fixed& other); // Copy assignment operator
-		~Fixed();                           // Destructor
+		~Fixed();
+		
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };

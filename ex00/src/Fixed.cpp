@@ -9,11 +9,9 @@ Fixed::Fixed()
 }
 
 // Copy constructor
-Fixed::Fixed(const Fixed& other)
+Fixed::Fixed(const Fixed& other) : _number_value(other._number_value)
 {
-    *this = other;
-	std::cout << "Copy assignment operator called" << std::endl;
-	_number_value = other._number_value;
+	std::cout << "Copy constructor operator called" << std::endl;
 }
 
 // Copy assignment operator
@@ -21,7 +19,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 {
 	if (this != &other)
 	{
-		std::cout << "Copy constructor called" << std::endl;
+		std::cout << "Copy assignment called" << std::endl;
 		this->_number_value = other._number_value;
 	}
 	return *this;
