@@ -15,7 +15,7 @@
 class Fixed
 {
 	private:
-		int nbr;
+		int _nbr;
 		static const int bits = 8;
 
 	public:
@@ -23,7 +23,7 @@ class Fixed
 		Fixed();                            // Default constructor
 		Fixed(const int value);             // Constructor from int
 		Fixed(const float value);           // Constructor from float
-		Fixed(const Fixed& other); // Copy constructor
+		Fixed(const Fixed& other);          // Copy constructor
 		Fixed& operator=(const Fixed& other); // Copy assignment operator
 		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number); // TODO: Overload stream insertion operator
 		~Fixed();                           // Destructor
@@ -54,8 +54,11 @@ class Fixed
 		static Fixed&		max(Fixed &val1, Fixed &val2);
 		static const Fixed&	max(const Fixed &val1, const Fixed &val2);	
 
+		// Getters and Setters
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
+
+		// Conversion functions
 		float toFloat(void) const;
 		int toInt(void ) const;
 };

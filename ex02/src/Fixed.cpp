@@ -4,19 +4,19 @@
 Fixed::Fixed()
 {
 	// std::cout << "Default constructor called" << std::endl;
-	nbr = 0;
+	_nbr = 0;
 }
 
 Fixed::Fixed(const int value)
 {
 	// std::cout << "Int constructor called" << std::endl;
-	nbr = value << bits;
+	_nbr = value << bits;
 }
 
 Fixed::Fixed(const float value)
 {
 	// std::cout << "Float constructor called" << std::endl;
-	nbr = roundf(value * (1 << bits)); // here we multiply by 2^bits
+	_nbr = value * (1 << bits); // here we multiply by 2^bits
 }
 // Conversion constructor
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number)
@@ -37,7 +37,7 @@ Fixed& Fixed::operator=(const Fixed& other)
 	// std::cout << "Fixed copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		this->nbr = other.nbr;
+		this->_nbr = other._nbr;
 	}
 	return *this;
 }
@@ -49,35 +49,36 @@ Fixed::~Fixed()
 	// std::cout << "Fixed destructor called" << std::endl;
 	// Clean up resources if necessary
 }
+
 // Comparaison operators
 bool	Fixed::operator>(const Fixed& other) const
 {
-	return nbr > other.nbr;
+	return _nbr > other._nbr;
 }
 
 bool	Fixed::operator<(const Fixed& other) const
 {
-	return nbr < other.nbr;
+	return _nbr < other._nbr;
 }
 
 bool	Fixed::operator>=(const Fixed& other) const
 {
-	return nbr >= other.nbr;
+	return _nbr >= other._nbr;
 }
 
 bool	Fixed::operator<=(const Fixed& other) const
 {
-	return nbr <= other.nbr;
+	return _nbr <= other._nbr;
 }
 
 bool	Fixed::operator==(const Fixed& other) const
 {
-	return nbr == other.nbr;
+	return _nbr == other._nbr;
 }
 
 bool	Fixed::operator!=(const Fixed& other) const
 {
-	return nbr != other.nbr;
+	return _nbr != other._nbr;
 }
 
 // Arithmetic operators
@@ -85,7 +86,7 @@ Fixed Fixed::operator+(const Fixed& other) const
 {
 	// std::cout << "Addition operator called" << std::endl;
 	Fixed result;
-	result.nbr = this->nbr + other.nbr;
+	result._nbr = this->_nbr + other._nbr;
 	return result;
 }
 
@@ -93,7 +94,7 @@ Fixed Fixed::operator-(const Fixed& other) const
 {
 	// std::cout << "Subtraction operator called" << std::endl;
 	Fixed result;
-	result.nbr = this->nbr - other.nbr;
+	result._nbr = this->_nbr - other._nbr;
 	return result;
 }
 
@@ -101,7 +102,7 @@ Fixed Fixed::operator*(const Fixed& other) const
 {
 	// std::cout << "Multiplication operator called" << std::endl;
 	Fixed result;
-	result.nbr = (this->nbr * other.nbr) >> bits;
+	result._nbr = (this->_nbr * other._nbr) >> bits;
 	return result;
 }
 
@@ -109,27 +110,27 @@ Fixed Fixed::operator/(const Fixed& other) const
 {
 	// std::cout << "Division operator called" << std::endl;
 	Fixed result;
-	result.nbr = (this->nbr << bits) / other.nbr;
+	result._nbr = (this->_nbr << bits) / other._nbr;
 	return result;
 }
 
 // Increment and Decrement operators
 Fixed&	Fixed::operator++(void)
 {
-	nbr++;
+	_nbr++;
 	return (*this);
 }
 
 Fixed	Fixed::operator++(int)
 {
 	Fixed	copy(*this);
-	nbr++;
+	_nbr++;
 	return (copy);
 }
 
 Fixed&	Fixed::operator--(void)
 {
-	nbr--;
+	_nbr--;
 	return (*this);
 }
 
@@ -137,7 +138,7 @@ Fixed	Fixed::operator--(int)
 {
 	Fixed	copy(*this);
 
-	nbr--;
+	_nbr--;
 	return (copy);
 }
 
@@ -170,12 +171,13 @@ const Fixed&	Fixed::max(const Fixed &val1, const Fixed &val2)
 	return (val2);
 }
 
+// Conversion functions
 // toFloat method
 float Fixed::toFloat(void) const
 {
 
 	float result;
-	result = nbr *1.0 / (1 << bits);
+	result = _nbr *1.0 / (1 << bits);
 	return result;
 }
 
@@ -183,16 +185,17 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
 	int result;
-	result = nbr >> bits; // here we divide by 2^bits
+	result = _nbr >> bits; // here we divide by 2^bits
 	return (result);
 }
 
+// Setters and Getters
 int Fixed::getRawBits(void) const
 {
-	return this->nbr; //TODO: should i use this??
+	return _nbr;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->nbr = raw;
+	_nbr = raw;
 }
