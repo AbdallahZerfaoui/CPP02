@@ -7,17 +7,20 @@ Fixed::Fixed()
 	_nbr = 0;
 }
 
+// Constructor from int
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
 	_nbr = value << _bits;
 }
 
+// Constructor from float
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
 	_nbr = roundf(value * (1 << _bits)); // here we multiply by 2^bits
 }
+
 // Conversion constructor
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number)
 {
@@ -46,7 +49,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 Fixed::~Fixed()
 {
 	std::cout << "Fixed destructor called" << std::endl;
-	// Clean up resources if necessary
 }
 
 // toFloat method
@@ -66,6 +68,7 @@ int Fixed::toInt(void) const
 	return (result);
 }
 
+// Getters and Setters
 int Fixed::getRawBits(void) const
 {
 	return this->_nbr; //TODO: should i use this??

@@ -21,7 +21,7 @@ class Fixed
 		Fixed(const Fixed& other); // Copy constructor
 		Fixed& operator=(const Fixed& other); // Copy assignment operator
 		~Fixed();
-		
+		// Getters and Setters
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
