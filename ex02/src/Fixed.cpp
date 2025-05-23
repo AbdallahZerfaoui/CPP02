@@ -37,18 +37,13 @@ Fixed& Fixed::operator=(const Fixed& other)
 	// std::cout << "Fixed copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		this->_nbr = other._nbr;
+		_nbr = other._nbr;
 	}
 	return *this;
 }
 
 // Destructor
-Fixed::~Fixed()
-{
-	return ;
-	// std::cout << "Fixed destructor called" << std::endl;
-	// Clean up resources if necessary
-}
+Fixed::~Fixed() {}
 
 // Comparaison operators
 bool	Fixed::operator>(const Fixed& other) const
