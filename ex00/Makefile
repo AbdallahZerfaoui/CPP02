@@ -71,7 +71,7 @@ clean:
 # Rule to clean up generated files
 # .PHONY prevents 'make' from confusing this rule with a file named 'clean'
 fclean: clean
-	$(RM) $(TARGET) *.replace
+	$(RM) $(TARGET)
 
 re: art fclean $(TARGET)
 
