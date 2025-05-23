@@ -56,7 +56,7 @@ float Fixed::toFloat(void) const
 {
 
 	float result;
-	result = _nbr *1.0 / (1 << _bits);
+	result = _nbr * 1.0 / (1 << _bits);
 	return result;
 }
 
@@ -71,10 +71,10 @@ int Fixed::toInt(void) const
 // Getters and Setters
 int Fixed::getRawBits(void) const
 {
-	return this->_nbr; //TODO: should i use this??
+	return _nbr;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->_nbr = raw;
+	_nbr = raw;
 }
