@@ -16,7 +16,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
 	// std::cout << "Float constructor called" << std::endl;
-	_nbr = value * (1 << bits); // here we multiply by 2^bits
+	_nbr = roundf(value * (1 << bits)); // here we multiply by 2^bits
 }
 // Conversion constructor
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number)

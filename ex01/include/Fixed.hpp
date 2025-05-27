@@ -25,7 +25,6 @@ class Fixed
 		Fixed(const float value);           // Constructor from float
 		Fixed(const Fixed& other);          // Copy constructor
 		Fixed& operator=(const Fixed& other); // Copy assignment operator
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number); // TODO: Overload stream insertion operator
 		~Fixed();
 		// Getters and Setters
 		int getRawBits(void) const;
@@ -33,6 +32,8 @@ class Fixed
 		// Conversion methods
 		float toFloat(void) const;
 		int toInt(void ) const;
-};
+	};
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed_number); // TODO: Overload stream insertion operator
 
 #endif
